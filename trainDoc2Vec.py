@@ -12,7 +12,6 @@ stop_words = set(stopwords.words('english'))
 
 def preprocessFile(docs):
 
-    # logging.info("reading file {0}...this may take a while".format(docs))
 
     for i, line in enumerate(docs):
 
@@ -46,7 +45,7 @@ def trainDV(documents, tags):
     model = Doc2Vec(finalDoc, dm=1, alpha=0.025, vector_size=100, min_alpha=0.025, window=10, min_count=10)
     model.train(finalDoc, total_examples=len(finalDoc), epochs=100)
 
-        # save the model to disk
+    # save the model to disk
     filename = 'model_dv12100-ep100.sav'
     pickle.dump(model, open(filename, 'wb'))
 
