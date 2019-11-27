@@ -35,10 +35,10 @@ if __name__ == "__main__":
         for item in documents:
             f.write("%s\n" % item)
 
-    # # write results in csv file
+    # write results in csv file
     with open('tag.csv', 'w', encoding="utf-8") as f:
         for item in tags:
             f.write("%s\n" % item)
 
 
-    # trainDV(documents,tags)
+    trainDV(documents,tags)
