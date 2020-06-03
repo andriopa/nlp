@@ -54,7 +54,7 @@ def decode(le, one_hot):
 x_enc = docs
 y_enc = encode(le, labels)
 
-x_train = np.asarray(x_enc[:10000])  #100032
+x_train = np.asarray(x_enc[:10000])
 y_train = np.asarray(y_enc[:10000])
 print('enc_train:', len(x_train),len(y_train))
 
@@ -76,12 +76,12 @@ pred = Dense(100, activation='softmax')(dense)
 model = Model(inputs=[input_text], outputs=pred)
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-#with tf.Session() as session:
-#    K.set_session(session)
-#    session.run(tf.global_variables_initializer())
-#    session.run(tf.tables_initializer())
-#    history = model.fit(x_train, y_train, epochs=10, batch_size=32)
-#    model.save_weights('./elmo-model-9.h5')
+with tf.Session() as session:
+   K.set_session(session)
+   session.run(tf.global_variables_initializer())
+   session.run(tf.tables_initializer())
+   history = model.fit(x_train, y_train, epochs=10, batch_size=32)
+   model.save_weights('./elmo-model-9.h5')
 
 model.summary()
 
